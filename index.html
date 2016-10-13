@@ -1,9 +1,45 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="lib/styles/main.css">
+  <link rel="stylesheet" href="lib/styles/main.min.css">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Lobster" rel="stylesheet">
+  <title>Cheddar Bay Biscuits 4 Lyfe</title>
 </head>
 <body>
+  <div id='container'>
+    <nav>
+      <li class='home'>Home</li>
+      <li class='social'>Bay Social</li>
+      <li class='maps'>Find Your Bay</li>
+      <li class='recipe'>Bay Recipes</li>
+    </nav>
+
+<div id='templates-container'>
+    <!-- Home Template -->
+<script id='home-template' type='text/x-handlebars-template'>
+  <div class='hero'></div>
+  <p class='hero-text'><span>Cheddar<br>BAE</span><br>Biscuits</p>
+</script>
+
+<!-- Social Template -->
+<script id='social-template' type='text/x-handlebars-template'>
+  <h1>Tweets About Bay</h1>
+  <div class='tweet-container'></div>
+</script>
+
+<!-- Maps Template -->
+<script id='maps-template' type='text/x-handlebars-template'>
+  <h1>Go Get Your Cheddar On</h1>
+  <div class='maps-container'></div>
+</script>
+
+<!-- Recipes Template -->
+<script id='recipe-template' type='text/x-handlebars-template'>
+  <h1>Whip Up Your Own (you independent fool)</h1>
+</script>
+</div>
+
+  </div>
   <script src="lib/js/main.js"></script>
 </body>
 </html>
