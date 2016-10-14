@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="lib/styles/main.min.css">
+
+<link rel="stylesheet" href="lib/styles/main.min.css">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Lobster" rel="stylesheet">
   <title>Cheddar Bay Biscuits 4 Lyfe</title>
 </head>
@@ -13,36 +14,39 @@
       <li class='maps'>Find Your Bay</li>
       <li class='recipe'>Bay Recipes</li>
     </nav>
-
-<div id='templates-container'>
-    <!-- Home Template -->
-
-</div>
-
+<div id='templates-container'></div>
   </div>
 
+<!-- Home Template -->
   <script id='home-template' type='text/x-handlebars-template'>
     <div class='hero'></div>
-    <p class='hero-text'><span>Cheddar<br>BAE</span><br>Biscuits</p>
+    <p class='hero-text'>Cheddar<br>BAE<br><span>Biscuits</span></p>
   </script>
 
   <!-- Social Template -->
   <script id='social-template' type='text/x-handlebars-template'>
+    <div class='hero'></div>
     <h1>Tweets About Bay</h1>
-    <div class='tweet-container'></div>
+    <div id='tweet'></div>
   </script>
 
   <!-- Maps Template -->
   <script id='maps-template' type='text/x-handlebars-template'>
-    <h1>Go Get Your Cheddar On</h1>
-    <div class='maps-container'></div>
+    <div class='hero'></div>
+    <h1>Get that cheddar: Red Lobster restaurants in the area</h1>
+    <div id='map'></div>
   </script>
 
   <!-- Recipes Template -->
   <script id='recipe-template' type='text/x-handlebars-template'>
+    <div class='hero'></div>
     <h1>Whip Up Your Own (you independent fool)</h1>
+    <div id='recipe'>
+      
+    </div>
   </script>
 
   <script src="lib/js/main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU2Fp6SIYAD--ig0VwHGaRA-b9yS6M27k&libraries=places" async defer></script>
 </body>
 </html>
