@@ -18,10 +18,11 @@ var buildMe = {
         var html = template(context);
         $('#templates-container').fadeOut('fast', function() {
             $('#templates-container').html('').prepend(html).fadeIn('fast', function() {
+                updateHash(pageTemplate);
                 if (pageTemplate === '#maps-template') {
                     initMap();
                 } else if (pageTemplate === '#recipe-template') {
-                  initRecipe();
+                    initRecipe();
                 }
             });
         });
@@ -44,6 +45,12 @@ var buildMe = {
         });
     },
 };
+
+
+function updateHash(hash) {
+    window.location.hash = hash;
+}
+
 
 // --- GOOGLE MAPS API CALL --- //
 var map;
@@ -80,7 +87,6 @@ function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
-            console.log(results[i]);
         }
     }
 }
@@ -91,41 +97,76 @@ function createMarker(place) {
         map: map,
         position: place.geometry.location
     });
-// adding the event listener so when a marker is clicked on, infowindow pops up
+    // adding the event listener so when a marker is clicked on, infowindow pops up
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(place.name + '<br>' + place.formatted_address + '<br>' + 'Rating: ' + String(place.rating));
         infowindow.open(map, this);
     });
 }
 
-// -- YUMMLY API CALL -- //
+// -- EDAMAM API CALL -- //
 
 function initRecipe() {
-$.get("https://api.edamam.com/search?q=cheddar+bay+biscuits&app_id=" + edamamUser.appId+ "&app_key=" + edamamUser.apiKey, function(response) {
-  for (count = 0; count<results.length; count++) {
-    return new Recipe(response.results[count]);
-  }
-});
-// $.ajax({
-//   type: 'GET',
-//   url: "https://api.edamam.com/search?q=cheddar+bay+biscuits&app_id=" + edamamUser.appId+ "&app_key="+ edamamUser.apiKey,
-//   headers: 'application/json',
-//   success: function(response) {
-//     console.log(response);
-//   }
-// })
+    $.ajax({
+        type: 'GET',
+        url: "https://api.edamam.com/search?q=cheddar+bay+biscuits&app_id=" + edamamUser.appId + "&app_key=" + edamamUser.apiKey,
+        headers: 'application/json',
+        dataType: 'jsonp',
+        success: function(response) {
+            recipeSlider(response);
+        }
+    });
+}
+
+function recipeSlider(response) {
+  //starts at 1 because the first recipe image link is dead
+    var count = 1;
+    new Recipe(response.hits[count].recipe);
+    $('#templates-container').on('click', '#plus', function() {
+        count++;
+        new Recipe(response.hits[count].recipe);
+    });
+}
+
+function deleteRecipe() {
+    $('#templates-container').on('click', '#delete', function() {
+       $(this).parents('.recipe-container').remove();
+    });
+}
+
+function showIngredients() {
+  $('#templates-container').on('click', '#showIngredients', function() {
+    console.log(this);
+    $(this).siblings('ul').slideToggle();
+  });
 }
 
 function Recipe(recipeObject) {
-  console.log(recipeObject);
-  // this.info = {
-  //
-  // };
+    var source = $('#recipe').html();
+    var template = Handlebars.compile(source);
+    var context = {
+        name: recipeObject.label,
+        img: recipeObject.image,
+        ingredient: recipeObject.ingredientLines,
+        url: recipeObject.url
+    };
+    var html = template(context);
+    $('#recipes').prepend(html);
 }
 
+
 function init() {
+
     buildMe.triggerTemplate();
     buildMe.generateTemplate('#home-template');
+    deleteRecipe();
+    showIngredients();
+
+    if (window.location.hash.length > 0) {
+        var page = window.location.hash;
+        buildMe.generateTemplate(page);
+    }
+
 }
 
 init();

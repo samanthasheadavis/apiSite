@@ -1,75 +1,24 @@
 //Variables
 $julius: 'Julius Sans One', sans-serif;
-
+$textfont: 'Roboto', sans-serif;
+$radius: 5px;
 //mixins
 @mixin center() {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
+@mixin button() {
+    font-size: 30px;
+    color: red;
 
+    &:hover {
+        color: black;
+    }
+}
 //Imports
 @import "partials/reset";
 @import "partials/navbar";
-
-#container {
-    width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-// Home Styles
-
-.hero {
-    height: 100vh;
-    background-image: url('http://3.bp.blogspot.com/-J0BBPpyYxOY/TnO-HMOPJSI/AAAAAAAAArg/u_9d9zT_w7U/s1600/red-lobster-cheddar-cheese-biscuits-recipe1.JPG');
-    background-size: cover;
-    z-index: -1;
-    position: relative;
-}
-
-.hero-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-family: $julius;
-    font-size: 10em;
-    color: rgba(black, .5);
-    font-size: bold;
-
-    span {
-      background: white;
-      display: block;
-    }
-}
-
-.tweet-container {
-    background: red;
-    width: 100%;
-    height: 100%;
-}
-
-//Map Styles
-
-#map {
-  height: 91vh;
-  width: 75%;
-  margin: 0 auto;
-  z-index: 2;
-  position: absolute;
-  top: 9vh;
-  @include center();
-}
-
-h1 {
-  text-align: center;
-  font-family: $julius;
-  position: absolute;
-  z-index: 3;
-  top: 15%;
-  color: white;
-  background: red;
-  @include center();
-  width: 75%;
-  padding: 10px 0;
-}
+@import "partials/home";
+@import "partials/map";
+@import "partials/recipes";

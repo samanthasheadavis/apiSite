@@ -1,0 +1,103 @@
+#recipes {
+    height: 91vh;
+    width: 50%;
+    margin: 0 auto;
+    z-index: 2;
+    position: absolute;
+    top: 9vh;
+    @include center();
+
+    .recipe-container {
+        background: rgba(black, .5);
+        margin: 5% 0;
+        overflow: hidden;
+        padding: 5% 0;
+        position: relative;
+        transition: all 1s ease;
+        border-radius: $radius;
+
+        &:hover > #delete {
+            display: inline;
+        }
+
+        h1 {
+            width: 100%;
+            top: 0;
+        }
+
+        img {
+            width: 200px;
+            margin: 5%;
+            float: left;
+            border-radius: $radius;
+        }
+
+        ul {
+            display: none;
+            background: rgba(white, .5);
+            border-radius: $radius;
+            margin-top: 13%;
+
+            li {
+                padding: 5px;
+                font-family: $textfont;
+            }
+        }
+    }
+
+    #plus {
+        bottom: 0;
+        position: absolute;
+        @include button();
+        text-align: center;
+        width: 100%;
+        background: rgba(red, .5);
+        cursor: pointer;
+
+    }
+
+    #delete {
+        font-size: 30px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        z-index: 3;
+        display: none;
+    }
+
+    #showIngredients {
+        background: red;
+        color: white;
+        @include center();
+        border-radius: $radius;
+        padding: 5px;
+        font-family: $julius;
+        margin: 5%;
+        font-family: $textfont;
+
+        &:hover {
+          background: black;
+          cursor: pointer;
+        }
+    }
+
+    #moreInfo {
+      background: red;
+      color: white;
+      position: absolute;
+      border-radius: $radius;
+      padding: 5px;
+      font-family: $julius;
+      margin: 5%;
+      right: 0;
+      font-family: $textfont;
+
+      &:hover {
+        background: black;
+        cursor: pointer;
+      }
+    }
+    .active {
+      display: inline-block;
+    }
+}
