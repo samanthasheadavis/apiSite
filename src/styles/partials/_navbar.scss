@@ -7,12 +7,30 @@ nav {
     background: black;
     color: white;
     opacity: 0.6;
+    transition: all 1s ease;
+
 
     li {
         display: inline-block;
-        padding: 15px 7%;
+        padding: 15px 11%;
         font-family: $julius;
         font-size: 25px;
+
+        @include media(1215px) {
+          padding:15px 9%;
+        }
+
+        @include media(880px) {
+          padding:15px 7%;
+        }
+
+        @include media(720px) {
+          padding:15px 5%;
+        }
+
+        @include media(590px) {
+          padding:15px 3%;
+        }
 
         &:hover {
             background: red;

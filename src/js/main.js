@@ -34,9 +34,6 @@ var buildMe = {
         $('#container').on('click', '.home', function(event) {
             buildMe.generateTemplate('#home-template');
         });
-        $('#container').on('click', '.social', function(event) {
-            buildMe.generateTemplate('#social-template');
-        });
         $('#container').on('click', '.maps', function(event) {
             buildMe.generateTemplate('#maps-template');
         });
@@ -50,6 +47,16 @@ var buildMe = {
 function updateHash(hash) {
     window.location.hash = hash;
 }
+
+// function mobileMenu() {
+//   $(window).resize(function() {
+//     // console.log($(window).width());
+//     if ($(window).width() < 500) {
+//       $('nav').children('li').remove();
+//     }
+//
+//   });
+// }
 
 
 // --- GOOGLE MAPS API CALL --- //
@@ -161,6 +168,7 @@ function init() {
     buildMe.generateTemplate('#home-template');
     deleteRecipe();
     showIngredients();
+    mobileMenu();
 
     if (window.location.hash.length > 0) {
         var page = window.location.hash;
