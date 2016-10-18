@@ -32,12 +32,17 @@ var buildMe = {
     triggerTemplate: function() {
 
         $('#container').on('click', '.home, .mobile-home', function(event) {
+          $('.mobile-nav').slideUp();
             buildMe.generateTemplate('#home-template');
+
         });
         $('#container').on('click', '.maps, .mobile-maps', function(event) {
+          $('.mobile-nav').slideUp();
             buildMe.generateTemplate('#maps-template');
+
         });
         $('#container').on('click', '.recipe, .mobile-recipe', function(event) {
+          $('.mobile-nav').slideUp();
             buildMe.generateTemplate('#recipe-template');
         });
     },
@@ -50,7 +55,6 @@ function updateHash(hash) {
 
 function mobileMenu() {
   $('nav').on('click', '.mobile-menu', function() {
-    console.log('in');
     $('.mobile-nav').slideToggle();
   });
 }

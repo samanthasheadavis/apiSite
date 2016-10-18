@@ -3,13 +3,17 @@
     margin: 0 auto;
     overflow: hidden;
 }
-// Home Styles
+
+#templates-container {
+  z-index: -4;
+}
 .hero {
     height: 100vh;
     background-image: url('http://3.bp.blogspot.com/-J0BBPpyYxOY/TnO-HMOPJSI/AAAAAAAAArg/u_9d9zT_w7U/s1600/red-lobster-cheddar-cheese-biscuits-recipe1.JPG');
     background-size: cover;
-    z-index: -1;
+    z-index: -5;
     position: relative;
+    background-attachment: fixed;
 }
 
 .hero-text {
@@ -21,11 +25,37 @@
     color: rgba(black, .5);
     font-size: bold;
     z-index: -1;
-    
+    transition: all 1s ease;
+
+    @include media(770px) {
+      font-size: 9em;
+    }
+    @include media(700px) {
+      font-size: 8em;
+    }
+    @include media(617px) {
+      font-size: 7em;
+    }
+    @include media(540px) {
+      font-size: 6em;
+    }
+    @include media(460px) {
+      font-size: 5em;
+      top: 25%;
+    }
+    @include media(400px) {
+      font-size: 4em;
+    }
+
+
+
+
+
     span {
-        background: white;
+        background: rgba(black, .5);
         display: block;
         width: 300%;
+        color: white;
     }
 }
 
@@ -33,7 +63,7 @@ h1 {
     text-align: center;
     font-family: $textfont;
     position: absolute;
-    z-index: 3;
+    z-index: 1;
     top: 15%;
     color: white;
     background: red;

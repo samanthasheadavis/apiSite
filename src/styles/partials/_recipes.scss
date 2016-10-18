@@ -2,10 +2,21 @@
     height: 91vh;
     width: 50%;
     margin: 0 auto;
-    z-index: 2;
     position: absolute;
     top: 9vh;
+    transition: all 1s ease;
+
     @include center();
+
+    @include media(1060px) {
+      width: 55%;
+    }
+    @include media(985px) {
+      width: 60%;
+    }
+    @include media(885px) {
+      width: 70%;
+    }
 
     .recipe-container {
         background: rgba(black, .5);
@@ -20,10 +31,16 @@
             display: inline;
         }
 
+        @include media(603px) {
+          padding: 9% 0;
+        }
+
+
         h1 {
             width: 100%;
             top: 0;
             font-family: $textfont;
+            z-index: 1;
         }
 
         img {
@@ -31,6 +48,15 @@
             margin: 5%;
             float: left;
             border-radius: $radius;
+
+            @include media(514px) {
+              margin-left: 24%;
+            }
+            @include media(400px) {
+              margin-left: 15%;
+            }
+
+
         }
 
         ul {
@@ -62,41 +88,57 @@
         position: absolute;
         right: 4px;
         top: 4px;
-        z-index: 3;
         display: none;
+        z-index: 2;
     }
 
     #showIngredients {
         background: red;
         color: white;
-        @include center();
         border-radius: $radius;
         padding: 5px;
         font-family: $julius;
-        margin: 5%;
+        margin-top: 5%;
+        margin-left: 10px;
+        width: 150px;
+        height: 20px;
         font-family: $textfont;
+        float: left;
 
         &:hover {
           background: black;
           cursor: pointer;
         }
+
+        @include media(1250px) {
+          margin: 10px;
+        }
+        @include media(514px) {
+          margin-left: 30%;
+        }
+        @include media(400px) {
+          margin-left: 22%;
+        }
+
     }
 
     #moreInfo {
-      background: red;
-      color: white;
-      position: absolute;
-      border-radius: $radius;
-      padding: 5px;
-      font-family: $julius;
-      margin: 5%;
-      right: 0;
-      font-family: $textfont;
+      @extend #showIngredients;
 
-      &:hover {
-        background: black;
-        cursor: pointer;
+      @include media(1244px) {
+        margin-top: 5%;
       }
+      @include media(603px) {
+        margin: 10px;
+      }
+      @include media(514px) {
+        margin-left: 30%;
+      }
+      @include media(400px) {
+        margin-left: 22%;
+      }
+
+
     }
     .active {
       display: inline-block;
