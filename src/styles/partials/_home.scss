@@ -1,11 +1,14 @@
 #container {
     width: 100%;
     margin: 0 auto;
-    overflow: hidden;
+    height: auto;
+    overflow: auto;
+
 }
 
 #templates-container {
   z-index: -4;
+  height: 100%;
 }
 .hero {
     height: 100vh;
@@ -18,7 +21,7 @@
 
 .hero-text {
     position: absolute;
-    bottom: 0;
+    bottom: 2000px;
     left: 0;
     font-family: $julius;
     font-size: 10em;
@@ -46,15 +49,10 @@
     @include media(400px) {
       font-size: 4em;
     }
-
-
-
-
-
     span {
         background: rgba(black, .5);
         display: block;
-        width: 300%;
+        width: 100vw;
         color: white;
     }
 }
