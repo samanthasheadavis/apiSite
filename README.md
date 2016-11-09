@@ -6,6 +6,7 @@ Cheddar Bae Biscuits is a single page app I built using the Google Maps API and 
 Functionality:
 * [Handlebars templates](http://handlebarsjs.com/) are used to build out the different pages of the app as well as the recipe cards on the recipes pages
 * Main content of site provided by Google Maps API and Edamam API
+* Fully responsive
 * JQuery animations like wow
 
 
